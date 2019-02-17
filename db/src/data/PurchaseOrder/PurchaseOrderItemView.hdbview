@@ -1,0 +1,21 @@
+VIEW "PurchaseOrder.ItemView" COMMENT 'Purchase Order Item View' (
+"PurchaseOrderItemID",
+"PartnerId",
+"ProductID",
+"CurrencyCode",
+"Amount",
+"NetAmount",
+"TaxAmount",
+"Quantity",
+"QuantityUnit",
+"DeliveryDate1") AS SELECT 
+"ITEM_$0"."POHeader"."PARTNER" AS "PartnerId",
+"ITEM_$0"."PRODUCT"."PRODUCT" AS "ProductID",
+"ITEM_$0"."POHeader"."CURRENCY" AS "CurrencyCode",
+"ITEM_$0"."POHeader"."GROSSAMOUNT" AS "Amount",
+"ITEM_$0"."POHeader"."NETAMOUNT" AS "NetAmount",
+"ITEM_$0"."POHeader"."TAXAMOUNT" AS "TaxAmount",
+"ITEM_$0"."POHeader".QUANTITY" AS "Quantity",
+"ITEM_$0"."POHeader"."QUANTITYUNIT" AS "QuantityUnit",
+"ITEM_$0"."POHeader"."DELIVERYDATE" AS "DeliveryDate1" FROM "PurchaseOrder.Item" as "ITEM_$0"
+WITH READ ONLY STRUCTURED PRIVILEGE CHECK
